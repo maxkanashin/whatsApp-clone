@@ -1,0 +1,25 @@
+.sidebar {
+  width: 35%;
+  border-right: 1px solid #e5e5e6;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 16px;
+}
+
+.header > .MuiIconAvatar-root {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+
+.header--btn {
+  justify-content: center;
+}
+
+.header--btn > .MuiIconButton-root {
+  height: 40px;
+  width: 40px;
+}
