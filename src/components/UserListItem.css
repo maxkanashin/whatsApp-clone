@@ -1,0 +1,49 @@
+.userListItem {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 73px;
+  margin: 10;
+}
+
+.userListItem:hover {
+  background-color: #f6f6f6;
+}
+
+.userListItem--avatar {
+  display: flex;
+  align-items: center;
+  padding: 0 15px 0 13px;
+}
+
+.userListItem--avatar > .MuiAvatar-root {
+  height: 50px;
+  width: 50px;
+}
+
+.userListItem--container {
+  flex: 1;
+  padding-right: 15px;
+}
+
+.userListItem--container--line {
+  display: flex;
+}
+
+.userListItem--user {
+  font-size: 17px;
+  flex: 1;
+}
+
+.userListItem--data {
+  font-size: 12px;
+  color: #b2b2b2;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.userListItem--message {
+  font-size: 14px;
+  color: #b2b2b2;
+  flex: 1;
+}
