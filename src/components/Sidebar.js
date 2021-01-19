@@ -1,11 +1,34 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import UserListItem from './UserListItem'
 import { Avatar, IconButton } from '@material-ui/core'
 import DonutLargeIcon from '@material-ui/icons/DonutLarge'
 import ChatIcon from '@material-ui/icons/Chat'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
+import SearchIcon from '@material-ui/icons/Search'
 import './Sidebar.css'
 
 function Sidebar() {
+  const [userList, setUserList] = useState([
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+  ])
+
   return (
     <div className="sidebar">
       <header>
@@ -26,8 +49,17 @@ function Sidebar() {
           </div>
         </div>
       </header>
-      <div className="sidebar--search">Search</div>
-      <div className="sidebar--list">UserList</div>
+      <div className="search">
+        <div className="search--container">
+          <SearchIcon fontSize="small" color="disabled" />
+          <input placeholder="Поиск или новый чат" />
+        </div>
+      </div>
+      <div className="userList">
+        {userList.map((item, key) => (
+          <UserListItem key={key} />
+        ))}
+      </div>
     </div>
   )
 }
