@@ -1,9 +1,11 @@
 .userListItem {
   display: flex;
+  flex: 1;
   align-items: center;
   cursor: pointer;
   height: 73px;
   margin: 10;
+  border-bottom: 1px solid #e5e5e6;
 }
 
 .userListItem:hover {
@@ -22,8 +24,11 @@
 }
 
 .userListItem--container {
+  display: flex;
   flex: 1;
+  flex-direction: column;
   padding-right: 15px;
+  min-width: 0;
 }
 
 .userListItem--container--line {
@@ -45,5 +50,14 @@
 .userListItem--message {
   font-size: 14px;
   color: #b2b2b2;
+  display: flex;
   flex: 1;
+  min-width: 0;
+}
+
+.userListItem--message p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0;
 }
