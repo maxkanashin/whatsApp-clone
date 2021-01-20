@@ -32,9 +32,9 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <header>
-        <div className="header">
+        <div className="sidebar__header">
           <Avatar />
-          <div className="header--btn">
+          <div className="sidebar__header__btn">
             <IconButton>
               <DonutLargeIcon />
             </IconButton>
@@ -49,13 +49,13 @@ function Sidebar() {
           </div>
         </div>
       </header>
-      <div className="search">
-        <div className="search--container">
+      <div className="sidebar__search">
+        <div className="search__container">
           <SearchIcon fontSize="small" color="disabled" />
           <input placeholder="Поиск или новый чат" />
         </div>
       </div>
-      <div className="userList">
+      <div className="sidebar__userList">
         {userList.map((item, key) => (
           <UserListItem key={key} />
         ))}

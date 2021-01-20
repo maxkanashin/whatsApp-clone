@@ -5,16 +5,16 @@ import './UserListItem.css'
 function UserListItem() {
   return (
     <div className="userListItem">
-      <div className="userListItem--avatar">
+      <div className="userListItem__avatar">
         <Avatar />
       </div>
-      <div className="userListItem--container">
-        <div className="userListItem--container--line">
-          <div className="userListItem--user">User Name</div>
-          <div className="userListItem--data">00:00</div>
+      <div className="userListItem__container">
+        <div className="userListItem__container__line">
+          <div className="userListItem__user">User Name</div>
+          <div className="userListItem__data">00:00</div>
         </div>
-        <div className="userListItem--container--line">
-          <div className="userListItem--message">
+        <div className="userListItem__container__line">
+          <div className="userListItem__message">
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione
               ipsam, porro voluptas necessitatibus omnis libero nam vel
