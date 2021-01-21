@@ -2,6 +2,9 @@ import React from 'react'
 import { Avatar, IconButton } from '@material-ui/core'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import SearchIcon from '@material-ui/icons/Search'
+import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
+import AttachFileIcon from '@material-ui/icons/AttachFile'
+import SendIcon from '@material-ui/icons/Send'
 import './ChatWindow.css'
 
 const ChatWindow = () => {
@@ -24,8 +27,27 @@ const ChatWindow = () => {
           </IconButton>
         </div>
       </header>
+
       <div className="chatWindow--messageWindow"></div>
-      <div className="chatWindow--inputWindow"></div>
+
+      <footer className="chatWindow--footer">
+        <div className="footer--buttons">
+          <IconButton>
+            <InsertEmoticonIcon />
+          </IconButton>
+          <IconButton>
+            <AttachFileIcon />
+          </IconButton>
+        </div>
+        <div className="footer--inputField">
+          <input placeholder="Введите сообщение"></input>
+        </div>
+        <div className="footer--sendButton">
+          <IconButton>
+            <SendIcon />
+          </IconButton>
+        </div>
+      </footer>
     </div>
   )
 }

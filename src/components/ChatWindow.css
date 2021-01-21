@@ -44,8 +44,33 @@
   background-image: url('/src/images/wallpaper.png');
 }
 
-.chatWindow--inputWindow {
-  margin-bottom: auto;
+.chatWindow--footer {
+  display: flex;
+  align-items: center;
   height: 62px;
-  background-color: royalblue;
+}
+
+.footer--buttons {
+  padding: 5px 10px;
+}
+
+.footer--inputField {
+  display: flex;
+  background-color: #ffffff;
+  height: 42px;
+  flex: 1;
+  align-items: center;
+  border-radius: 20px;
+  padding-left: 11px;
+}
+
+.footer--inputField > input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0 2px;
+}
+
+.footer--sendButton {
+  margin-left: auto;
 }

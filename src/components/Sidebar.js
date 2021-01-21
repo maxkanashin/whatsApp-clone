@@ -11,9 +11,9 @@ const Sidebar = ({ users, activeId, setActiveId }) => {
   return (
     <div className="sidebar">
       <header>
-        <div className="sidebar__header">
+        <div className="sidebar--header">
           <Avatar />
-          <div className="sidebar__header__btn">
+          <div className="sidebar--header--btn">
             <IconButton>
               <DonutLargeIcon />
             </IconButton>
@@ -28,13 +28,13 @@ const Sidebar = ({ users, activeId, setActiveId }) => {
           </div>
         </div>
       </header>
-      <div className="sidebar__search">
-        <div className="search__container">
+      <div className="sidebar--search">
+        <div className="search--container">
           <SearchIcon fontSize="small" color="disabled" />
           <input placeholder="Поиск или новый чат" />
         </div>
       </div>
-      <div className="sidebar__userList">
+      <div className="sidebar--userList">
         {users.map((item, i) => (
           <UserListItem
             user={item}
