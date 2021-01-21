@@ -7,28 +7,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert'
 import SearchIcon from '@material-ui/icons/Search'
 import './Sidebar.css'
 
-function Sidebar() {
-  const [userList, setUserList] = useState([
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {}
-  ])
-
+const Sidebar = ({ users, activeId, setActiveId }) => {
   return (
     <div className="sidebar">
       <header>
@@ -56,8 +35,13 @@ function Sidebar() {
         </div>
       </div>
       <div className="sidebar__userList">
-        {userList.map((item, key) => (
-          <UserListItem key={key} />
+        {users.map((item, i) => (
+          <UserListItem
+            user={item}
+            key={i}
+            active={item.id === activeId}
+            onClick={() => setActiveId(item.id)}
+          />
         ))}
       </div>
     </div>

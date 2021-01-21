@@ -2,25 +2,20 @@ import React from 'react'
 import { Avatar } from '@material-ui/core'
 import './UserListItem.css'
 
-function UserListItem() {
+const UserListItem = ({ user, active, onClick }) => {
   return (
-    <div className="userListItem">
-      <div className="userListItem__avatar">
+    <div className={`userListItem${active ? ' active' : ''}`} onClick={onClick}>
+      <div className="userListItem--avatar">
         <Avatar />
       </div>
-      <div className="userListItem__container">
-        <div className="userListItem__container__line">
-          <div className="userListItem__user">User Name</div>
-          <div className="userListItem__data">00:00</div>
+      <div className="userListItem--container">
+        <div className="userListItem--container--line">
+          <div className="userListItem--user">{user.userName}</div>
+          <div className="userListItem--data">00:00</div>
         </div>
-        <div className="userListItem__container__line">
-          <div className="userListItem__message">
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione
-              ipsam, porro voluptas necessitatibus omnis libero nam vel
-              laudantium autem modi! Pariatur quasi error repudiandae saepe
-              necessitatibus fuga, dolorum ratione quis.
-            </p>
+        <div className="userListItem--container--line">
+          <div className="userListItem--message">
+            <p>{user.message}</p>
           </div>
         </div>
       </div>

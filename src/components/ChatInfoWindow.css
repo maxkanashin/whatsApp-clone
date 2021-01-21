@@ -8,7 +8,7 @@
   border-bottom: 6px solid #4adf83;
 }
 
-.ChatInfoWindow__content {
+.ChatInfoWindow--content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,11 +21,16 @@
   user-select: none;
 }
 
-.ChatInfoWindow__content__img img {
+.ChatInfoWindow--content--img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  pointer-events: none;
+
+  background-image: url('/src/images/intro-connection-light.jpg');
+  background-size: auto 100%;
+  width: 356px;
+  height: 355px;
+  background-repeat: no-repeat;
 }
 
 .ChatInfoWindow h1 {
@@ -36,7 +41,7 @@
   text-align: center;
 }
 
-.ChatInfoWindow__text {
+.ChatInfoWindow--text {
   color: #888989;
   font-size: 14px;
   margin-top: 24px;
@@ -44,7 +49,7 @@
   text-align: center;
 }
 
-.ChatInfoWindow__link {
+.ChatInfoWindow--link {
   color: #888989;
   font-size: 14px;
   display: flex;
@@ -52,20 +57,20 @@
   margin-top: 34px;
 }
 
-.ChatInfoWindow__link a {
+.ChatInfoWindow--link a {
   color: #1cc15c;
   text-decoration: none;
 }
 
 @media screen and (max-width: 900px) {
-  .ChatInfoWindow__content__img img {
+  .ChatInfoWindow--content--img {
     width: 250px;
     height: 250px;
   }
 }
 
 @media screen and (max-height: 740px) {
-  .ChatInfoWindow img {
+  .ChatInfoWindow--content--img {
     width: 250px;
     height: 250px;
   }

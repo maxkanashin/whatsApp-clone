@@ -12,18 +12,22 @@
   background-color: #f6f6f6;
 }
 
-.userListItem__avatar {
+.userListItem.active {
+  background-color: #ebebeb;
+}
+
+.userListItem--avatar {
   display: flex;
   align-items: center;
   padding: 0 15px 0 13px;
 }
 
-.userListItem__avatar > .MuiAvatar-root {
+.userListItem--avatar > .MuiAvatar-root {
   height: 50px;
   width: 50px;
 }
 
-.userListItem__container {
+.userListItem--container {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -31,23 +35,23 @@
   min-width: 0;
 }
 
-.userListItem__container__line {
+.userListItem--container--line {
   display: flex;
 }
 
-.userListItem__user {
+.userListItem--user {
   font-size: 17px;
   flex: 1;
 }
 
-.userListItem__data {
+.userListItem--data {
   font-size: 12px;
   color: #b2b2b2;
   margin-left: auto;
   margin-right: 0;
 }
 
-.userListItem__message {
+.userListItem--message {
   font-size: 14px;
   color: #b2b2b2;
   display: flex;
@@ -55,7 +59,7 @@
   min-width: 0;
 }
 
-.userListItem__message p {
+.userListItem--message p {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
