@@ -1,8 +1,8 @@
 .chatWindow {
   display: flex;
-  flex-direction: column;
   flex: 1;
   height: 100%;
+  flex-direction: column;
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
@@ -42,6 +42,8 @@
 .chatWindow--messageWindow {
   flex: 1;
   background-image: url('/src/images/wallpaper.png');
+  padding-top: 10px;
+  overflow-y: auto;
 }
 
 .chatWindow--footer {
@@ -73,4 +75,5 @@
 
 .footer--sendButton {
   margin-left: auto;
+  padding: 5px 10px;
 }
