@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Avatar, IconButton } from '@material-ui/core'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import SearchIcon from '@material-ui/icons/Search'
@@ -10,13 +10,29 @@ import MessageBox from './shared/MessageBox'
 import './ChatWindow.css'
 
 const ChatWindow = () => {
+  const messagesEndRef = useRef(null)
   const [input, setInput] = useState('')
   const [messages, setMessages] = useState([])
 
+  const scrollToBottom = () => {
+    messagesEndRef.current.scrollIntoView()
+  }
+
+  function handleClickEnter(e) {
+    if (e.key === 'Enter') {
+      handleClickSend(e)
+    }
+  }
+
   function handleClickSend(e) {
     e.preventDefault()
-    setMessages((item) => [...item, { text: input }])
+    if (input.length > 0) {
+      setMessages((item) => [...item, { text: input }])
+      setInput('')
+    }
   }
+
+  useEffect(scrollToBottom)
 
   return (
     <div className="chatWindow">
@@ -42,6 +58,7 @@ const ChatWindow = () => {
         {messages.map((item, index) => (
           <MessageBox message={item} key={index} />
         ))}
+        <div ref={messagesEndRef} />
       </div>
 
       <footer className="chatWindow--footer">
@@ -58,6 +75,7 @@ const ChatWindow = () => {
             value={input}
             onChange={(event) => setInput(event.target.value)}
             placeholder="Введите сообщение"
+            onKeyPress={handleClickEnter}
           ></input>
         </div>
         <div className="footer--sendButton">
