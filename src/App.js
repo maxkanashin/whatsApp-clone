@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import uuid from 'react-uuid'
 import Sidebar from './components/Sidebar'
 import ChatInfoWindow from './components/ChatInfoWindow'
@@ -99,15 +100,11 @@ function App() {
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, laborum.'
     }
   ])
-  const [activeId, setActiveId] = useState(null)
+  const activeId = useSelector((state) => state.activeId)
   return (
     <div className="App">
       <div className="App--body">
-        <Sidebar
-          users={userList}
-          activeId={activeId}
-          setActiveId={setActiveId}
-        />
+        <Sidebar users={userList} />
         {activeId == null ? <ChatInfoWindow /> : <ChatWindow />}
       </div>
     </div>

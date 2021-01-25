@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setActiveId } from '../AC/activeIdAction'
 import UserListItem from './UserListItem'
 import { Avatar, IconButton } from '@material-ui/core'
 import DonutLargeIcon from '@material-ui/icons/DonutLarge'
@@ -7,7 +9,9 @@ import MoreVertIcon from '@material-ui/icons/MoreVert'
 import SearchIcon from '@material-ui/icons/Search'
 import './Sidebar.css'
 
-const Sidebar = ({ users, activeId, setActiveId }) => {
+const Sidebar = ({ users }) => {
+  const dispatch = useDispatch()
+  const activeId = useSelector((state) => state.activeId)
   return (
     <div className="sidebar">
       <header>
@@ -40,7 +44,7 @@ const Sidebar = ({ users, activeId, setActiveId }) => {
             user={item}
             key={i}
             active={item.id === activeId}
-            onClick={() => setActiveId(item.id)}
+            onClick={() => dispatch(setActiveId(item.id))}
           />
         ))}
       </div>
