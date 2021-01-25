@@ -9,9 +9,10 @@ import MoreVertIcon from '@material-ui/icons/MoreVert'
 import SearchIcon from '@material-ui/icons/Search'
 import './Sidebar.css'
 
-const Sidebar = ({ users }) => {
+const Sidebar = () => {
   const dispatch = useDispatch()
   const activeId = useSelector((state) => state.activeId)
+  const usersList = useSelector((state) => state.usersList.entities)
   return (
     <div className="sidebar">
       <header>
@@ -39,7 +40,7 @@ const Sidebar = ({ users }) => {
         </div>
       </div>
       <div className="sidebar--userList">
-        {users.map((item, i) => (
+        {usersList.valueSeq().map((item, i) => (
           <UserListItem
             user={item}
             key={i}

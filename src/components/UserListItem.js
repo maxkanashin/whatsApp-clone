@@ -6,7 +6,7 @@ const UserListItem = ({ user, active, onClick }) => {
   return (
     <div className={`userListItem${active ? ' active' : ''}`} onClick={onClick}>
       <div className="userListItem--avatar">
-        <Avatar />
+        <Avatar src={user.imgAvatar} />
       </div>
       <div className="userListItem--container">
         <div className="userListItem--container--line">

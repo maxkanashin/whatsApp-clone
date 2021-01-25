@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { Avatar, IconButton } from '@material-ui/core'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import SearchIcon from '@material-ui/icons/Search'
@@ -13,7 +14,10 @@ const ChatWindow = () => {
   const messagesEndRef = useRef(null)
   const [input, setInput] = useState('')
   const [messages, setMessages] = useState([])
-
+  const activeId = useSelector((state) => state.activeId)
+  const user = useSelector((state) =>
+    state.usersList.getIn(['entities', activeId])
+  )
   const scrollToBottom = () => {
     messagesEndRef.current.scrollIntoView()
   }
@@ -38,10 +42,10 @@ const ChatWindow = () => {
     <div className="chatWindow">
       <header className="chatWindow--header">
         <div className="header--avatar">
-          <Avatar />
+          <Avatar src={user.imgAvatar} />
         </div>
         <div className="header--container">
-          <div className="header--container--name">User Name</div>
+          <div className="header--container--name">{user.userName}</div>
           <div className="header--container--date">Был в сети вчера</div>
         </div>
         <div className="header--buttons">
