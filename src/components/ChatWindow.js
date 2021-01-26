@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { setMessage } from '../AC/chatListAction'
 import { Avatar, IconButton } from '@material-ui/core'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import SearchIcon from '@material-ui/icons/Search'
@@ -13,8 +14,11 @@ import './ChatWindow.css'
 const ChatWindow = () => {
   const messagesEndRef = useRef(null)
   const [input, setInput] = useState('')
-  const [messages, setMessages] = useState([])
+  const dispatch = useDispatch()
   const activeId = useSelector((state) => state.activeId)
+  const chatList = useSelector((state) => state.chatList.entities)
+  const messagesList = chatList.find((obj) => obj.get('userId') === activeId)
+
   const user = useSelector((state) =>
     state.usersList.getIn(['entities', activeId])
   )
@@ -31,12 +35,17 @@ const ChatWindow = () => {
   function handleClickSend(e) {
     e.preventDefault()
     if (input.length > 0) {
-      setMessages((item) => [...item, { text: input }])
+      var date = new Date()
+      dispatch(
+        setMessage(input, activeId, date.getHours() + ':' + date.getMinutes())
+      )
       setInput('')
     }
   }
 
-  useEffect(scrollToBottom)
+  useEffect(() => {
+    scrollToBottom()
+  })
 
   return (
     <div className="chatWindow">
@@ -59,7 +68,7 @@ const ChatWindow = () => {
       </header>
 
       <div className="chatWindow--messageWindow">
-        {messages.map((item, index) => (
+        {messagesList.get('messages').map((item, index) => (
           <MessageBox message={item} key={index} />
         ))}
         <div ref={messagesEndRef} />

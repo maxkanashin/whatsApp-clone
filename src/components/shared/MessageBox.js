@@ -5,8 +5,8 @@ function MessageBox({ message }) {
   return (
     <div className="messageBox--line">
       <div className="messageBox--line--container">
-        <div className="container--message">{message.text}</div>
-        <div className="container--time">19.00</div>
+        <div className="container--message">{message.message}</div>
+        <div className="container--time">{message.date}</div>
       </div>
     </div>
   )
