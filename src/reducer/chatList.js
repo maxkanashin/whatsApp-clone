@@ -22,9 +22,9 @@ const chatList = (chatList = new DefaultReducerState(), action) => {
 
   switch (type) {
     case SET_MESSAGE:
-      const chat = chatList.entities.find((obj) => {
-        return obj.get('userId') === payload.userId
-      })
+      const chat = chatList.entities.find(
+        (obj) => obj.get('userId') === payload.userId
+      )
 
       let messageList = new MessagesListModel({
         author: MY_UUID,

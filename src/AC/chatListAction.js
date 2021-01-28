@@ -1,4 +1,3 @@
-import { Message } from '@material-ui/icons'
 import { SET_MESSAGE } from '../constants'
 
 export function setMessage(message, userId, date) {

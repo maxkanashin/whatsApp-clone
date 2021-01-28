@@ -37,7 +37,11 @@ const ChatWindow = () => {
     if (input.length > 0) {
       var date = new Date()
       dispatch(
-        setMessage(input, activeId, date.getHours() + ':' + date.getMinutes())
+        setMessage(
+          input,
+          activeId,
+          date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
+        )
       )
       setInput('')
     }

@@ -10,6 +10,7 @@ import {
   ChatListModel,
   MessagesListModel
 } from '../reducer/chatList.js'
+import { MY_UUID } from '../constants'
 
 let odata = {}
 
@@ -31,7 +32,10 @@ try {
     })
     for (let j = 0; j < 20; j++) {
       let messages = new MessagesListModel({
-        author: usersList.id,
+        author:
+          Math.floor(Math.random() * Math.floor(2)) === 1
+            ? usersList.id
+            : MY_UUID,
         date: '22:44',
         message: faker.lorem.sentence(5)
       })

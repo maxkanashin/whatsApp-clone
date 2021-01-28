@@ -15,7 +15,14 @@ function ChatInfoWindow() {
         <div className="ChatInfoWindow--link">
           <LaptopWindowsIcon />
           <div>
-            WhatsApp доступен для Windows. <a href="/#">Скачайте здесь</a>
+            WhatsApp доступен для Windows.{' '}
+            <a
+              href="https://www.whatsapp.com/download"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Скачайте здесь
+            </a>
           </div>
         </div>
       </div>

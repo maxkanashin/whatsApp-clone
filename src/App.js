@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
-import uuid from 'react-uuid'
 import Sidebar from './components/Sidebar'
 import ChatInfoWindow from './components/ChatInfoWindow'
 import ChatWindow from './components/ChatWindow'

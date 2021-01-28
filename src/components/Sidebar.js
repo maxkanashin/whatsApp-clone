@@ -13,6 +13,8 @@ const Sidebar = () => {
   const dispatch = useDispatch()
   const activeId = useSelector((state) => state.activeId)
   const usersList = useSelector((state) => state.usersList.entities)
+  const chatList = useSelector((state) => state.chatList.entities)
+
   return (
     <div className="sidebar">
       <header>
@@ -40,14 +42,18 @@ const Sidebar = () => {
         </div>
       </div>
       <div className="sidebar--userList">
-        {usersList.valueSeq().map((item, i) => (
-          <UserListItem
-            user={item}
-            key={i}
-            active={item.id === activeId}
-            onClick={() => dispatch(setActiveId(item.id))}
-          />
-        ))}
+        {chatList.valueSeq().map((item, i) => {
+          const user = usersList.find((obj) => obj.get('id') === item.userId)
+          return (
+            <UserListItem
+              user={user}
+              lastMessage={item.messages[item.messages.length - 1]}
+              key={i}
+              active={user.id === activeId}
+              onClick={() => dispatch(setActiveId(user.id))}
+            />
+          )
+        })}
       </div>
     </div>
   )

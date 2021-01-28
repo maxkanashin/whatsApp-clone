@@ -1,19 +1,33 @@
 .App {
+  position: relative;
+  z-index: 100;
   background-color: #d7dbd6;
-  height: 100vh;
-  display: grid;
-  place-items: center;
-  min-width: 768px;
-  min-height: 500px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 19px 0px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.App::after {
+  background-color: #009688;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  height: 127px;
+  width: 100%;
+  content: '';
 }
 
 .App--body {
   font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu,
     Cantarell, Fira Sans, sans-serif;
   background-color: #ededed;
-  width: 73vw;
-  height: 95vh;
+  width: 73%;
+  height: 100%;
   display: flex;
+  box-shadow: 0 2px 5px 0 #999999;
 }
 
 @media screen and (max-width: 1400px) {
@@ -26,8 +40,12 @@
   }
 }
 
-@media screen and (max-height: 500px) {
+@media screen and (max-height: 512px) {
   .App--body {
     height: 512px;
+  }
+
+  .App {
+    padding-bottom: 0px;
   }
 }
