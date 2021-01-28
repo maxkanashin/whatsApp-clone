@@ -1,16 +1,21 @@
 .App {
+  height: 100%;
+  width: 100%;
+}
+
+.App--wrapper {
   position: relative;
   z-index: 100;
   background-color: #d7dbd6;
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   padding: 19px 0px;
   box-sizing: border-box;
-  overflow-y: auto;
 }
 
-.App::after {
+.App--wrapper::after {
   background-color: #009688;
   position: absolute;
   top: 0;
@@ -32,7 +37,7 @@
 
 @media screen and (max-width: 1400px) {
   .App--body {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -40,12 +45,23 @@
   }
 }
 
-@media screen and (max-height: 512px) {
+@media screen and (max-width: 648px) {
   .App--body {
-    height: 512px;
+    min-width: 648px;
   }
 
-  .App {
+  .App--wrapper {
+    overflow-x: auto;
+  }
+}
+
+@media screen and (max-height: 512px) {
+  .App--body {
+    min-height: 512px;
+  }
+
+  .App--wrapper {
     padding-bottom: 0px;
+    overflow-y: auto;
   }
 }

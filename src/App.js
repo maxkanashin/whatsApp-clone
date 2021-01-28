@@ -9,9 +9,11 @@ function App() {
   const activeId = useSelector((state) => state.activeId)
   return (
     <div className="App">
-      <div className="App--body">
-        <Sidebar />
-        {activeId == null ? <ChatInfoWindow /> : <ChatWindow />}
+      <div className="App--wrapper">
+        <div className="App--body">
+          <Sidebar />
+          {activeId == null ? <ChatInfoWindow /> : <ChatWindow />}
+        </div>
       </div>
     </div>
   )
