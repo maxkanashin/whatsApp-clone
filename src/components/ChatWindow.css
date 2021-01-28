@@ -46,6 +46,25 @@
   overflow-y: auto;
 }
 
+.chatWindow--emojiField {
+  height: 320px;
+  transition: 0.2s;
+  overflow: hidden;
+}
+
+.chatWindow--emojiField.hidden {
+  height: 0px;
+  overflow: hidden;
+}
+
+.emoji-mart {
+  width: 100% !important;
+}
+
+.emoji-mart .emoji-mart-emoji {
+  outline: none;
+}
+
 .chatWindow--footer {
   display: flex;
   align-items: center;
@@ -53,7 +72,17 @@
 }
 
 .footer--buttons {
-  padding: 5px 10px;
+  padding-left: 2px;
+}
+
+.footer--buttons > .MuiButtonBase-root {
+  transition: ease all 0.2s;
+}
+
+.footer--buttons > .hidden {
+  overflow: hidden;
+  width: 0;
+  padding: 0;
 }
 
 .footer--inputField {
@@ -68,6 +97,7 @@
 
 .footer--inputField > input {
   width: 100%;
+  font-size: 15px;
   border: none;
   outline: none;
   padding: 0 2px;

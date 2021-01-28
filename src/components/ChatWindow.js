@@ -8,12 +8,18 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
 import AttachFileIcon from '@material-ui/icons/AttachFile'
 import SendIcon from '@material-ui/icons/Send'
 import MicIcon from '@material-ui/icons/Mic'
+import CloseIcon from '@material-ui/icons/Close'
+import GifIcon from '@material-ui/icons/Gif'
+import NoteIcon from '@material-ui/icons/Note'
 import MessageBox from './shared/MessageBox'
+import { Picker } from 'emoji-mart'
+import 'emoji-mart/css/emoji-mart.css'
 import './ChatWindow.css'
 
 const ChatWindow = () => {
   const messagesEndRef = useRef(null)
   const [input, setInput] = useState('')
+  const [emojiIsOpen, setEmojiIsOpen] = useState(false)
   const dispatch = useDispatch()
   const activeId = useSelector((state) => state.activeId)
   const chatList = useSelector((state) => state.chatList.entities)
@@ -47,6 +53,20 @@ const ChatWindow = () => {
     }
   }
 
+  function handleClickEmoji(emoji) {
+    console.log(emoji)
+  }
+
+  function handleClickEmojiOpen(e) {
+    e.preventDefault()
+    if (!emojiIsOpen) setEmojiIsOpen(true)
+  }
+
+  function handleClickClose(e) {
+    e.preventDefault()
+    setEmojiIsOpen(false)
+  }
+
   useEffect(() => {
     scrollToBottom()
   })
@@ -78,11 +98,38 @@ const ChatWindow = () => {
         <div ref={messagesEndRef} />
       </div>
 
+      <div className={`chatWindow--emojiField${!emojiIsOpen ? ' hidden' : ''}`}>
+        <Picker
+          showPreview={false}
+          showSkinTones={false}
+          emojiSize={32}
+          onSelect={(emoji) => setInput(input + emoji.native)}
+        />
+      </div>
+
       <footer className="chatWindow--footer">
         <div className="footer--buttons">
-          <IconButton>
-            <InsertEmoticonIcon />
+          <IconButton
+            className={`${!emojiIsOpen ? 'hidden' : ''}`}
+            onClick={handleClickClose}
+          >
+            <CloseIcon />
           </IconButton>
+
+          <IconButton onClick={handleClickEmojiOpen}>
+            <InsertEmoticonIcon
+              style={{ color: emojiIsOpen ? '#009688' : '#919191' }}
+            />
+          </IconButton>
+
+          <IconButton className={`${!emojiIsOpen ? 'hidden' : ''}`}>
+            <GifIcon />
+          </IconButton>
+
+          <IconButton className={`${!emojiIsOpen ? 'hidden' : ''}`}>
+            <NoteIcon />
+          </IconButton>
+
           <IconButton>
             <AttachFileIcon />
           </IconButton>
