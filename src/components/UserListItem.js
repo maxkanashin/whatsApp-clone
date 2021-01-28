@@ -1,5 +1,6 @@
 import React from 'react'
-import { Avatar } from '@material-ui/core'
+import { Avatar, IconButton } from '@material-ui/core'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import './UserListItem.css'
 
 const UserListItem = ({ user, lastMessage, active, onClick }) => {
@@ -17,6 +18,9 @@ const UserListItem = ({ user, lastMessage, active, onClick }) => {
           <div className="userListItem--message">
             <p>{lastMessage.message}</p>
           </div>
+          <IconButton>
+            <ExpandMoreIcon />
+          </IconButton>
         </div>
       </div>
     </div>

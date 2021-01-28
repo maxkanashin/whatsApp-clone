@@ -65,3 +65,17 @@
   text-overflow: ellipsis;
   margin: 0;
 }
+
+.userListItem--container--line > .MuiButtonBase-root {
+  width: 0px;
+  padding: 0px;
+  transition: 0.1s;
+  overflow: hidden;
+}
+
+.userListItem:hover
+  > .userListItem--container
+  > .userListItem--container--line
+  > .MuiButtonBase-root {
+  width: 24px;
+}
