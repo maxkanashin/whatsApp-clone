@@ -22,7 +22,7 @@
   width: 24px;
   height: 24px;
 }
-.messageBox--line--container > .container--btn > .MuiButtonBase-root {
+.container--btn > .MuiButtonBase-root {
   width: 0px;
   padding: 0px;
   transition: all ease 0.1s;
