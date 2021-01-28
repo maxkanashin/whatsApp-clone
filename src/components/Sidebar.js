@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setActiveId } from '../AC/activeIdAction'
-import UserListItem from './UserListItem'
+import ChatListItem from './shared/ChatListItem'
 import { Avatar, IconButton } from '@material-ui/core'
 import DonutLargeIcon from '@material-ui/icons/DonutLarge'
 import ChatIcon from '@material-ui/icons/Chat'
@@ -45,7 +45,7 @@ const Sidebar = () => {
         {chatList.valueSeq().map((item, i) => {
           const user = usersList.find((obj) => obj.get('id') === item.userId)
           return (
-            <UserListItem
+            <ChatListItem
               user={user}
               lastMessage={item.messages[item.messages.length - 1]}
               key={i}

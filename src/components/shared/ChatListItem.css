@@ -1,4 +1,4 @@
-.userListItem {
+.ChatListItem {
   display: flex;
   flex: 1;
   align-items: center;
@@ -8,26 +8,26 @@
   border-bottom: 1px solid #e5e5e6;
 }
 
-.userListItem:hover {
+.ChatListItem:hover {
   background-color: #f6f6f6;
 }
 
-.userListItem.active {
+.ChatListItem.active {
   background-color: #ebebeb;
 }
 
-.userListItem--avatar {
+.ChatListItem--avatar {
   display: flex;
   align-items: center;
   padding: 0 15px 0 13px;
 }
 
-.userListItem--avatar > .MuiAvatar-root {
+.ChatListItem--avatar > .MuiAvatar-root {
   height: 50px;
   width: 50px;
 }
 
-.userListItem--container {
+.ChatListItem--container {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -35,23 +35,23 @@
   min-width: 0;
 }
 
-.userListItem--container--line {
+.ChatListItem--container--line {
   display: flex;
 }
 
-.userListItem--user {
+.ChatListItem--user {
   font-size: 17px;
   flex: 1;
 }
 
-.userListItem--data {
+.ChatListItem--data {
   font-size: 12px;
   color: #b2b2b2;
   margin-left: auto;
   margin-right: 0;
 }
 
-.userListItem--message {
+.ChatListItem--message {
   font-size: 14px;
   color: #b2b2b2;
   display: flex;
@@ -59,23 +59,23 @@
   min-width: 0;
 }
 
-.userListItem--message p {
+.ChatListItem--message p {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   margin: 0;
 }
 
-.userListItem--container--line > .MuiButtonBase-root {
+.ChatListItem--container--line > .MuiButtonBase-root {
   width: 0px;
   padding: 0px;
   transition: 0.1s;
   overflow: hidden;
 }
 
-.userListItem:hover
-  > .userListItem--container
-  > .userListItem--container--line
+.ChatListItem:hover
+  > .ChatListItem--container
+  > .ChatListItem--container--line
   > .MuiButtonBase-root {
   width: 24px;
 }
