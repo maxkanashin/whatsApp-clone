@@ -59,6 +59,18 @@
 
 .emoji-mart {
   width: 100% !important;
+  background: none;
+}
+
+.emoji-mart-category-label > span {
+  color: #afafaf;
+  background: none;
+}
+
+#emoji-mart-search-1 {
+  background-color: #e6e6e6;
+  outline: none;
+  border: none;
 }
 
 .emoji-mart .emoji-mart-emoji {
@@ -68,7 +80,6 @@
 .chatWindow--footer {
   display: flex;
   align-items: center;
-  height: 62px;
 }
 
 .footer--buttons {
@@ -88,19 +99,21 @@
 .footer--inputField {
   display: flex;
   background-color: #ffffff;
-  height: 42px;
   flex: 1;
   align-items: center;
   border-radius: 20px;
-  padding-left: 11px;
+  padding: 9px 12px 11px;
+  margin: 5px 10px;
 }
 
-.footer--inputField > input {
+.footer--inputField > textarea {
   width: 100%;
   font-size: 15px;
   border: none;
   outline: none;
   padding: 0 2px;
+  max-height: 100px;
+  resize: none;
 }
 
 .footer--sendButton {

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setMessage } from '../AC/chatListAction'
-import { Avatar, IconButton } from '@material-ui/core'
+import { Avatar, IconButton, TextareaAutosize } from '@material-ui/core'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import SearchIcon from '@material-ui/icons/Search'
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
@@ -32,8 +32,10 @@ const ChatWindow = () => {
     messagesEndRef.current.scrollIntoView()
   }
 
-  function handleClickEnter(e) {
-    if (e.key === 'Enter') {
+  function handleClickKey(e) {
+    if (e.which === 13 && e.ctrlKey) {
+      setInput(e.target.value + '\n')
+    } else if (e.which === 13) {
       handleClickSend(e)
     }
   }
@@ -51,10 +53,6 @@ const ChatWindow = () => {
       )
       setInput('')
     }
-  }
-
-  function handleClickEmoji(emoji) {
-    console.log(emoji)
   }
 
   function handleClickEmojiOpen(e) {
@@ -135,12 +133,13 @@ const ChatWindow = () => {
           </IconButton>
         </div>
         <div className="footer--inputField">
-          <input
+          <TextareaAutosize
+            rowsMax={5}
             value={input}
             onChange={(event) => setInput(event.target.value)}
             placeholder="Введите сообщение"
-            onKeyPress={handleClickEnter}
-          ></input>
+            onKeyPress={handleClickKey}
+          ></TextareaAutosize>
         </div>
         <div className="footer--sendButton">
           {input.length > 0 ? (

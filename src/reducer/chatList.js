@@ -25,7 +25,6 @@ const chatList = (chatList = new DefaultReducerState(), action) => {
       const chat = chatList.entities.find(
         (obj) => obj.get('userId') === payload.userId
       )
-
       let messageList = new MessagesListModel({
         author: MY_UUID,
         date: payload.date,
