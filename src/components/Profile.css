@@ -1,0 +1,94 @@
+.profile {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: #ededed;
+  transition: 0.5s;
+  overflow: hidden;
+  transform: translateX(0%);
+}
+
+.profile.hidden {
+  transform: translateX(-100%);
+}
+
+.profile--header {
+  display: flex;
+  flex-direction: column;
+  height: 108px;
+  background-color: #00bfa5;
+  justify-content: flex-end;
+}
+
+.header--content {
+  display: flex;
+  align-items: center;
+}
+
+.header--content > .MuiButtonBase-root {
+  color: white;
+}
+
+.header--content--text {
+  color: white;
+  font-size: 19px;
+}
+
+.profile--body {
+  overflow-y: auto;
+}
+
+.profile--body--avatar {
+  margin: 28px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.profile--body--avatar > .MuiAvatar-root {
+  height: 200px;
+  width: 200px;
+}
+
+.profile--body--container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 14px 30px 10px;
+  background-color: white;
+}
+
+.body--label {
+  white-space: nowrap;
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: #009688;
+}
+
+.body--inputField {
+  display: flex;
+  align-items: center;
+}
+
+.inputField--btn > .MuiButtonBase-root {
+  padding: 0px;
+}
+
+.inputField--input {
+  display: flex;
+  flex: 1;
+  min-width: 100px;
+}
+
+.inputField--input > input[type='text'] {
+  margin: 8px 10px 0px 0px;
+  font-size: 17px;
+  width: 100%;
+}
+
+.profile--body--warning {
+  margin: 4px 20px 28px 30px;
+  font-size: 14px;
+  color: #828282;
+}

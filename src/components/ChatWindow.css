@@ -1,6 +1,6 @@
 .chatWindow {
   display: flex;
-  flex: 1;
+  flex: 70%;
   height: 100%;
   flex-direction: column;
   -moz-user-select: none;
@@ -87,7 +87,7 @@
 }
 
 .footer--buttons > .MuiButtonBase-root {
-  transition: ease all 0.2s;
+  transition: all ease 0.2s;
 }
 
 .footer--buttons > .hidden {
