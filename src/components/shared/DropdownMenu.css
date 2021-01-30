@@ -1,0 +1,36 @@
+.dropdown-menu {
+  position: absolute;
+  background-color: white;
+  padding: 9px 0px;
+  right: 4px;
+  box-shadow: 0 2px 5px 0 #999999;
+  z-index: 100;
+}
+
+.dropdown-menu ul {
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu.menu-enter {
+  transform-origin: right top;
+  opacity: 0;
+  transform: scale(0.3);
+}
+
+.dropdown-menu.menu-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: 200ms;
+}
+
+.dropdown-menu.menu-exit {
+  transform-origin: right top;
+  opacity: 1;
+}
+
+.dropdown-menu.menu-exit-active {
+  opacity: 0;
+  transform: scale(0.3);
+  transition: 200ms;
+}

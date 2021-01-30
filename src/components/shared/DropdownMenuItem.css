@@ -1,0 +1,17 @@
+.dropdown-menu-item {
+  list-style-type: none;
+}
+
+.dropdown-menu-item div {
+  padding: 13px 58px 0px 24px;
+  font-size: 14.5px;
+  color: #4a4a4a;
+  white-space: nowrap;
+  cursor: pointer;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.dropdown-menu-item:hover {
+  background-color: #f6f6f6;
+}
