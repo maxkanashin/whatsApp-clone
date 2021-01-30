@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setActiveId } from '../AC/activeIdAction'
 import ChatListItem from './shared/ChatListItem'
+import DropdownMenu from './shared/DropdownMenu'
+import DropdownMenuItem from './shared/DropdownMenuItem'
 import Profile from './Profile'
 import { Avatar, IconButton } from '@material-ui/core'
 import DonutLargeIcon from '@material-ui/icons/DonutLarge'
@@ -13,6 +15,7 @@ import './Sidebar.css'
 const Sidebar = () => {
   const dispatch = useDispatch()
   const [isProfileOpen, setIsProfileOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   const activeId = useSelector((state) => state.activeId)
   const usersList = useSelector((state) => state.usersList.entities)
   const chatList = useSelector((state) => state.chatList.entities)
@@ -22,18 +25,33 @@ const Sidebar = () => {
       <div className="main_sidebar">
         <div className="main_sidebar--header">
           <Avatar onClick={() => setIsProfileOpen(true)} />
-          <div className="main_sidebar--header--btn">
-            <IconButton>
-              <DonutLargeIcon />
-            </IconButton>
+          <div className="main_sidebar--header--buttons">
+            <div className="header--btn">
+              <IconButton>
+                <DonutLargeIcon />
+              </IconButton>
+            </div>
 
-            <IconButton>
-              <ChatIcon />
-            </IconButton>
+            <div className="header--btn">
+              <IconButton>
+                <ChatIcon />
+              </IconButton>
+            </div>
 
-            <IconButton>
-              <MoreVertIcon />
-            </IconButton>
+            <div className="header--btn">
+              <IconButton onClick={() => setIsOpen(!isOpen)}>
+                <MoreVertIcon />
+              </IconButton>
+              <DropdownMenu isOpen={isOpen} setIsOpen={setIsOpen}>
+                <DropdownMenuItem>Новая группа</DropdownMenuItem>
+                <DropdownMenuItem>Создать комнату</DropdownMenuItem>
+                <DropdownMenuItem>Профиль</DropdownMenuItem>
+                <DropdownMenuItem>Архив</DropdownMenuItem>
+                <DropdownMenuItem>Избранные</DropdownMenuItem>
+                <DropdownMenuItem>Настройки</DropdownMenuItem>
+                <DropdownMenuItem>Выйти</DropdownMenuItem>
+              </DropdownMenu>
+            </div>
           </div>
         </div>
         <div className="main_sidebar--search">

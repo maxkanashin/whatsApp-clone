@@ -13,12 +13,15 @@ import GifIcon from '@material-ui/icons/Gif'
 import NoteIcon from '@material-ui/icons/Note'
 import MessageBox from './shared/MessageBox'
 import { Picker } from 'emoji-mart'
+import DropdownMenu from './shared/DropdownMenu'
+import DropdownMenuItem from './shared/DropdownMenuItem'
 import 'emoji-mart/css/emoji-mart.css'
 import './ChatWindow.css'
 
 const ChatWindow = () => {
   const messagesEndRef = useRef(null)
   const [input, setInput] = useState('')
+  const [isOpen, setIsOpen] = useState(false)
   const [emojiIsOpen, setEmojiIsOpen] = useState(false)
   const dispatch = useDispatch()
   const activeId = useSelector((state) => state.activeId)
@@ -80,12 +83,23 @@ const ChatWindow = () => {
           <div className="header--container--date">Был в сети вчера</div>
         </div>
         <div className="header--buttons">
-          <IconButton>
-            <SearchIcon />
-          </IconButton>
-          <IconButton>
-            <MoreVertIcon />
-          </IconButton>
+          <div className="header--btn">
+            <IconButton>
+              <SearchIcon />
+            </IconButton>
+          </div>
+          <div className="header--btn">
+            <IconButton onClick={() => setIsOpen(!isOpen)}>
+              <MoreVertIcon />
+            </IconButton>
+            <DropdownMenu isOpen={isOpen} setIsOpen={setIsOpen}>
+              <DropdownMenuItem>Данные контакта</DropdownMenuItem>
+              <DropdownMenuItem>Выбрать сообщения</DropdownMenuItem>
+              <DropdownMenuItem>Без звука</DropdownMenuItem>
+              <DropdownMenuItem>Очистить чат</DropdownMenuItem>
+              <DropdownMenuItem>Удалить чат</DropdownMenuItem>
+            </DropdownMenu>
+          </div>
         </div>
       </header>
 
