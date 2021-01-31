@@ -36,7 +36,7 @@ try {
           Math.floor(Math.random() * Math.floor(2)) === 1
             ? usersList.id
             : MY_UUID,
-        date: '22:44',
+        date: '00:34',
         message: faker.lorem.sentence(5)
       })
       chatList = chatList.set('messages', [...chatList.messages, messages])
