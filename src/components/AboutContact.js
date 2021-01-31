@@ -22,7 +22,7 @@ function AboutContact(props) {
   return (
     <CSSTransition
       in={isOpen}
-      timeout={300}
+      timeout={200}
       classNames="about-contact"
       unmountOnExit
       onEnter={() => setIsMount(true)}

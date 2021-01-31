@@ -28,7 +28,6 @@ const ChatWindow = () => {
   const activeId = useSelector((state) => state.activeId)
   const chatList = useSelector((state) => state.chatList.entities)
   const messagesList = chatList.find((obj) => obj.get('userId') === activeId)
-  const isOpenContact = useSelector((state) => state.openContact)
 
   const user = useSelector((state) =>
     state.usersList.getIn(['entities', activeId])
@@ -99,8 +98,14 @@ const ChatWindow = () => {
             <IconButton onClick={() => setIsOpenMenu(!isOpenMenu)}>
               <MoreVertIcon />
             </IconButton>
-            <DropdownMenu isOpen={isOpenMenu} setIsOpen={setIsOpenMenu}>
-              <DropdownMenuItem>Данные контакта</DropdownMenuItem>
+            <DropdownMenu
+              isOpen={isOpenMenu}
+              setIsOpen={setIsOpenMenu}
+              onClick={() => setIsOpenMenu(false)}
+            >
+              <DropdownMenuItem onClick={() => dispatch(openAboutContact())}>
+                Данные контакта
+              </DropdownMenuItem>
               <DropdownMenuItem>Выбрать сообщения</DropdownMenuItem>
               <DropdownMenuItem>Без звука</DropdownMenuItem>
               <DropdownMenuItem>Очистить чат</DropdownMenuItem>

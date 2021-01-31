@@ -148,7 +148,7 @@
 
 .about-contact.about-contact-enter-active {
   flex: 40%;
-  transition: 300ms;
+  transition: 200ms;
 }
 
 .about-contact.about-contact-exit-active {
@@ -166,7 +166,7 @@
   opacity: 1;
   transform: scale(1);
   transform-origin: top;
-  transition: 300ms;
+  transition: 200ms;
 }
 
 @media screen and (max-width: 1024px) {
@@ -182,6 +182,6 @@
 
   .about-contact.about-contact-enter-active {
     transform: translateX(0%);
-    transition: 300ms;
+    transition: 200ms;
   }
 }
