@@ -16,8 +16,11 @@ const Sidebar = () => {
   const dispatch = useDispatch()
   const [isProfileOpen, setIsProfileOpen] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const [filter, setFilter] = useState('')
   const activeId = useSelector((state) => state.activeId)
-  const usersList = useSelector((state) => state.usersList.entities)
+  const usersList = useSelector((state) => state.usersList.entities).filter(
+    (item) => item.userName.indexOf(filter) > -1
+  )
   const chatList = useSelector((state) => state.chatList.entities)
 
   return (
@@ -57,13 +60,17 @@ const Sidebar = () => {
         <div className="main_sidebar--search">
           <div className="search--container">
             <SearchIcon fontSize="small" color="disabled" />
-            <input placeholder="Поиск или новый чат" />
+            <input
+              placeholder="Поиск или новый чат"
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
+            />
           </div>
         </div>
         <div className="main_sidebar--userList">
           {chatList.valueSeq().map((item, i) => {
             const user = usersList.find((obj) => obj.get('id') === item.userId)
-            return (
+            return user ? (
               <ChatListItem
                 user={user}
                 lastMessage={item.messages[item.messages.length - 1]}
@@ -71,6 +78,8 @@ const Sidebar = () => {
                 active={user.id === activeId}
                 onClick={() => dispatch(setActiveId(user.id))}
               />
+            ) : (
+              ''
             )
           })}
         </div>

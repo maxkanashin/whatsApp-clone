@@ -77,6 +77,11 @@
   flex: 1;
   background-color: #ffffff;
   overflow-y: auto;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 @media screen and (max-width: 1400px) {
