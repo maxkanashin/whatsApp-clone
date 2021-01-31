@@ -26,7 +26,7 @@ function DropdownMenu(props) {
       onEnter={() => props.setIsOpen(true)}
       onExited={() => props.setIsOpen(false)}
     >
-      <div ref={wrapperRef} className="dropdown-menu">
+      <div ref={wrapperRef} className="dropdown-menu" onClick={props.onClick}>
         <ul>{props.children}</ul>
       </div>
     </CSSTransition>
