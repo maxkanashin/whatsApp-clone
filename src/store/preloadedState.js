@@ -22,7 +22,8 @@ try {
     let usersList = new UsersListModel({
       id: uuid(),
       userName: faker.name.findName(),
-      imgAvatar: `${faker.image.people()}?random=${i + 10}`
+      imgAvatar: `${faker.image.people()}?random=${i + 10}`,
+      phoneNum: faker.phone.phoneNumberFormat(2)
     })
     usersListMap = usersListMap.setIn(['entities', usersList.id], usersList)
 

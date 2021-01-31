@@ -3,4 +3,11 @@
   display: flex;
   flex: 70%;
   height: 100%;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 900px) {
+  .main-window {
+    flex: 70%;
+  }
 }

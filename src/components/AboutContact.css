@@ -1,0 +1,187 @@
+.about-contact {
+  display: flex;
+  flex-direction: column;
+  flex: 40%;
+  overflow: hidden;
+}
+
+.about-contact--header {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  padding: 0 20px 0 25px;
+  background-color: #ededed;
+}
+
+.about-contact--body {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-bottom: 32px;
+  flex: 1;
+  background-color: #ededed;
+}
+
+.about-contact--header > .MuiButtonBase-root {
+  height: 40px;
+  width: 40px;
+  padding: 0px;
+  margin-right: 20px;
+}
+
+.body--wrapper {
+  display: flex;
+  background-color: white;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px #e1e1e1;
+  padding: 0 30px;
+}
+
+.body--avatar {
+  flex: 1;
+  padding: 28px 0px 19px;
+}
+
+.body--avatar > .MuiAvatar-root {
+  height: 200px;
+  width: 200px;
+  margin: 0 auto 20px auto;
+}
+
+.avatar--name {
+  font-size: 19px;
+}
+
+.avatar--date {
+  margin-top: 3px;
+  font-size: 14px;
+  color: #828282;
+}
+
+.body--documents {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 14px 0px 10px;
+}
+
+.documents--tittle {
+  display: flex;
+  flex: 1;
+  margin-bottom: 14px;
+  align-items: center;
+}
+
+.about-contact--tittle--text {
+  font-size: 14px;
+  color: #009688;
+}
+
+.about-contact--btn {
+  display: flex;
+  margin-left: auto;
+}
+
+.about-contact--btn > .MuiButtonBase-root {
+  padding: 0px;
+}
+
+.documents--content {
+  font-size: 14px;
+  color: #828282;
+  padding-bottom: 15px;
+  align-self: center;
+}
+
+.body--setting-messages {
+  display: flex;
+  flex-direction: column;
+}
+
+.body--setting-messages {
+  width: 100%;
+}
+
+.container--line {
+  display: flex;
+  flex: 1;
+  padding: 19px 0;
+  cursor: pointer;
+}
+
+.container--line--text {
+  font-size: 17px;
+}
+
+.body--number {
+  display: flex;
+  flex-direction: column;
+  margin-top: 14px;
+  flex: 1;
+}
+
+.body--button {
+  display: flex;
+  flex: 1;
+  cursor: pointer;
+  background-color: white;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px #e1e1e1;
+  padding: 19px 30px;
+}
+
+.body--button:hover {
+  background-color: #f6f6f6;
+}
+
+.body--button.red {
+  color: #df3333;
+}
+
+.button--title {
+  margin-left: 30px;
+}
+
+.about-contact.about-contact-enter {
+  flex: 0;
+}
+
+.about-contact.about-contact-enter-active {
+  flex: 40%;
+  transition: 300ms;
+}
+
+.about-contact.about-contact-exit-active {
+  transform: translateX(100%);
+  transition: 200ms;
+}
+
+.about-contact.about-contact-enter > .about-contact--body {
+  transform-origin: top;
+  opacity: 0;
+  transform: scale(0.3);
+}
+
+.about-contact.about-contact-enter-active > .about-contact--body {
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: top;
+  transition: 300ms;
+}
+
+@media screen and (max-width: 1024px) {
+  .about-contact {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .about-contact.about-contact-enter {
+    transform: translateX(100%);
+  }
+
+  .about-contact.about-contact-enter-active {
+    transform: translateX(0%);
+    transition: 300ms;
+  }
+}

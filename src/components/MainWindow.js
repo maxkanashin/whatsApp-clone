@@ -9,7 +9,7 @@ function MainWindow() {
   const activeId = useSelector((state) => state.activeId)
   return (
     <div className="main-window">
-      {activeId == null ? <ChatInfoWindow /> : <ChatWindow />}
+      {activeId ? <ChatWindow /> : <ChatInfoWindow />}
       <AboutContact />
     </div>
   )

@@ -1,7 +1,6 @@
 .sidebar {
   position: relative;
   flex: 30%;
-  min-width: 30%;
   display: flex;
   background-color: #ededed;
   border-right: 1px solid #e5e5e6;
@@ -83,5 +82,11 @@
 @media screen and (max-width: 1400px) {
   .sidebar {
     min-width: 260px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .sidebar {
+    flex: 30%;
   }
 }

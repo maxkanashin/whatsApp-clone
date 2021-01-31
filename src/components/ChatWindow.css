@@ -1,6 +1,7 @@
 .chatWindow {
   display: flex;
   height: 100%;
+  flex: 60%;
   flex-direction: column;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -17,6 +18,12 @@
   padding: 0 16px;
   border-right: 1px solid #dadada;
   border-bottom: 1px solid #dadada;
+}
+
+.header--tittle {
+  display: flex;
+  flex: 1;
+  cursor: pointer;
 }
 
 .header--avatar {

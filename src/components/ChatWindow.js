@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setMessage } from '../AC/chatListAction'
+import { openAboutContact } from '../AC/openContactAction'
 import { Avatar, IconButton, TextareaAutosize } from '@material-ui/core'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import SearchIcon from '@material-ui/icons/Search'
@@ -21,12 +22,13 @@ import './ChatWindow.css'
 const ChatWindow = () => {
   const messagesEndRef = useRef(null)
   const [input, setInput] = useState('')
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [emojiIsOpen, setEmojiIsOpen] = useState(false)
   const dispatch = useDispatch()
   const activeId = useSelector((state) => state.activeId)
   const chatList = useSelector((state) => state.chatList.entities)
   const messagesList = chatList.find((obj) => obj.get('userId') === activeId)
+  const isOpenContact = useSelector((state) => state.openContact)
 
   const user = useSelector((state) =>
     state.usersList.getIn(['entities', activeId])
@@ -75,12 +77,17 @@ const ChatWindow = () => {
   return (
     <div className="chatWindow">
       <header className="chatWindow--header">
-        <div className="header--avatar">
-          <Avatar src={user.imgAvatar} />
-        </div>
-        <div className="header--container">
-          <div className="header--container--name">{user.userName}</div>
-          <div className="header--container--date">Был в сети вчера</div>
+        <div
+          className="header--tittle"
+          onClick={() => dispatch(openAboutContact())}
+        >
+          <div className="header--avatar">
+            <Avatar src={user.imgAvatar} />
+          </div>
+          <div className="header--container">
+            <div className="header--container--name">{user.userName}</div>
+            <div className="header--container--date">Был в сети вчера</div>
+          </div>
         </div>
         <div className="header--buttons">
           <div className="header--btn">
@@ -89,10 +96,10 @@ const ChatWindow = () => {
             </IconButton>
           </div>
           <div className="header--btn">
-            <IconButton onClick={() => setIsOpen(!isOpen)}>
+            <IconButton onClick={() => setIsOpenMenu(!isOpenMenu)}>
               <MoreVertIcon />
             </IconButton>
-            <DropdownMenu isOpen={isOpen} setIsOpen={setIsOpen}>
+            <DropdownMenu isOpen={isOpenMenu} setIsOpen={setIsOpenMenu}>
               <DropdownMenuItem>Данные контакта</DropdownMenuItem>
               <DropdownMenuItem>Выбрать сообщения</DropdownMenuItem>
               <DropdownMenuItem>Без звука</DropdownMenuItem>
