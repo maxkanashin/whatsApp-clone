@@ -1,0 +1,6 @@
+.main-window {
+  position: relative;
+  display: flex;
+  flex: 70%;
+  height: 100%;
+}

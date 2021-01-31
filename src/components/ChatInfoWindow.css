@@ -1,6 +1,6 @@
 .ChatInfoWindow {
   display: flex;
-  flex: 70%;
+  flex: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
