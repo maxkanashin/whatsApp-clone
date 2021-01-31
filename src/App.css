@@ -36,7 +36,7 @@
   box-shadow: 0 2px 5px 0 #999999;
 }
 
-@media screen and (max-width: 1920px) {
+@media (min-width: 1440px) and (max-width: 1900px) {
   .App--body {
     width: 85%;
   }
