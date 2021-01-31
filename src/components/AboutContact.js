@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Avatar, IconButton } from '@material-ui/core'
 import Checkbox from '@material-ui/core/Checkbox'
@@ -8,11 +8,10 @@ import ThumbDownIcon from '@material-ui/icons/ThumbDown'
 import BlockIcon from '@material-ui/icons/Block'
 import DeleteIcon from '@material-ui/icons/Delete'
 import { CSSTransition } from 'react-transition-group'
-import { openAboutContact, closeAboutContact } from '../AC/openContactAction'
+import { closeAboutContact } from '../AC/openContactAction'
 import './AboutContact.css'
 
 function AboutContact(props) {
-  const [isMount, setIsMount] = useState(false)
   const activeId = useSelector((state) => state.activeId)
   const isOpen = useSelector((state) => state.openContact)
   const user = useSelector((state) =>
@@ -25,7 +24,6 @@ function AboutContact(props) {
       timeout={200}
       classNames="about-contact"
       unmountOnExit
-      onEnter={() => setIsMount(true)}
       onExited={() => dispatch(closeAboutContact())}
     >
       <div className="about-contact">

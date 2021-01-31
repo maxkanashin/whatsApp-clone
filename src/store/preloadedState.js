@@ -1,4 +1,3 @@
-import * as fs from 'fs'
 import uuid from 'react-uuid'
 import faker from 'faker'
 import {
