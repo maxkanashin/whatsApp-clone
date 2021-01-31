@@ -49,9 +49,15 @@
 }
 
 .chatWindow--emojiField {
-  height: 320px;
+  height: 300px;
   transition: 0.2s;
   overflow: hidden;
+  display: flex;
+}
+
+.chatWindow--emojiField > .emoji-mart {
+  display: flex;
+  flex-direction: column;
 }
 
 .chatWindow--emojiField.hidden {
