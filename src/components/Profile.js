@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Avatar, IconButton } from '@material-ui/core'
 import CreateIcon from '@material-ui/icons/Create'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
+import CheckIcon from '@material-ui/icons/Check'
 import './Profile.css'
 
 const Profile = ({ isOpen, setIsOpen }) => {
@@ -54,7 +55,7 @@ const Profile = ({ isOpen, setIsOpen }) => {
             </div>
             <div className="inputField--btn">
               <IconButton onClick={() => setIsDisableName(!isDisableName)}>
-                <CreateIcon />
+                {isDisableName ? <CheckIcon /> : <CreateIcon />}
               </IconButton>
             </div>
           </div>
@@ -76,7 +77,7 @@ const Profile = ({ isOpen, setIsOpen }) => {
             </div>
             <div className="inputField--btn">
               <IconButton onClick={() => setIsDisableInfo(!isDisableInfo)}>
-                <CreateIcon />
+                {isDisableInfo ? <CheckIcon /> : <CreateIcon />}
               </IconButton>
             </div>
           </div>
