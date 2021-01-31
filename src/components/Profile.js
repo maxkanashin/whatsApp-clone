@@ -6,6 +6,10 @@ import './Profile.css'
 
 const Profile = ({ isOpen, setIsOpen }) => {
   const [unMount, setUnMount] = useState(true)
+  const [isDisableName, setIsDisableName] = useState(false)
+  const [inputName, setInputName] = useState('User Name')
+  const [isDisableInfo, setIsDisableInfo] = useState(false)
+  const [inputInfo, setInputInfo] = useState('Hey there! I am using WhatsApp.')
   if (unMount && isOpen) {
     setTimeout(() => {
       setUnMount(false)
@@ -39,12 +43,17 @@ const Profile = ({ isOpen, setIsOpen }) => {
         </div>
         <div className="profile--body--container">
           <div className="body--label">Ваше имя</div>
-          <div className="body--inputField">
+          <div className={`body--inputField${isDisableName ? ' active' : ''}`}>
             <div className="inputField--input">
-              <input type="text" />
+              <input
+                type="text"
+                value={inputName}
+                onChange={(e) => setInputName(e.target.value)}
+                disabled={!isDisableName}
+              />
             </div>
             <div className="inputField--btn">
-              <IconButton>
+              <IconButton onClick={() => setIsDisableName(!isDisableName)}>
                 <CreateIcon />
               </IconButton>
             </div>
@@ -56,12 +65,17 @@ const Profile = ({ isOpen, setIsOpen }) => {
         </div>
         <div className="profile--body--container">
           <div className="body--label">Сведения</div>
-          <div className="body--inputField">
+          <div className={`body--inputField${isDisableInfo ? ' active' : ''}`}>
             <div className="inputField--input">
-              <input type="text" />
+              <input
+                type="text"
+                value={inputInfo}
+                onChange={(e) => setInputInfo(e.target.value)}
+                disabled={!isDisableInfo}
+              />
             </div>
             <div className="inputField--btn">
-              <IconButton>
+              <IconButton onClick={() => setIsDisableInfo(!isDisableInfo)}>
                 <CreateIcon />
               </IconButton>
             </div>

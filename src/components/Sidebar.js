@@ -19,7 +19,7 @@ const Sidebar = () => {
   const [filter, setFilter] = useState('')
   const activeId = useSelector((state) => state.activeId)
   const usersList = useSelector((state) => state.usersList.entities).filter(
-    (item) => item.userName.indexOf(filter) > -1
+    (item) => item.userName.toLowerCase().indexOf(filter.toLowerCase()) > -1
   )
   const chatList = useSelector((state) => state.chatList.entities)
 
@@ -45,10 +45,16 @@ const Sidebar = () => {
               <IconButton onClick={() => setIsOpen(!isOpen)}>
                 <MoreVertIcon />
               </IconButton>
-              <DropdownMenu isOpen={isOpen} setIsOpen={setIsOpen}>
+              <DropdownMenu
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                onClick={() => setIsOpen(false)}
+              >
                 <DropdownMenuItem>Новая группа</DropdownMenuItem>
                 <DropdownMenuItem>Создать комнату</DropdownMenuItem>
-                <DropdownMenuItem>Профиль</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setIsProfileOpen(true)}>
+                  Профиль
+                </DropdownMenuItem>
                 <DropdownMenuItem>Архив</DropdownMenuItem>
                 <DropdownMenuItem>Избранные</DropdownMenuItem>
                 <DropdownMenuItem>Настройки</DropdownMenuItem>
