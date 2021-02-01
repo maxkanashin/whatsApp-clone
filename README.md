@@ -6,10 +6,9 @@ Demo copy of the popular Whatsapp messenger. Created using ReactJS + Redux
 
 https://maxkanashin.github.io/whatsApp-clone/
 
-
 ## Install and Start
 
 ```
-npm install`
-npm start`
+npm install
+npm start
 ```
